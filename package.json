@@ -1,0 +1,35 @@
+{
+  "name": "time-gaps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint test/**/*.js index.js",
+    "unit-test": "mocha test/*.test.js",
+    "test": "npm run lint && npm run unit-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdminLP/time-gaps.git"
+  },
+  "author": "Vasiliy Kryuchkov",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AdminLP/time-gaps/issues"
+  },
+  "homepage": "https://github.com/AdminLP/time-gaps#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.1.0"
+  },
+  "dependencies": {
+    "moment": "^2.20.1",
+    "ramda": "^0.25.0"
+  },
+  "engines": {
+    "node": ">= 6.11.5"
+  }
+}
