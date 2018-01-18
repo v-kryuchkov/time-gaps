@@ -1,46 +1,71 @@
-const { unnest } = require('ramda');
+const { sortBy, prop } = require('ramda');
 
-const overlaps = ([startNewInt, endNewInt], [startInt, endInt]) =>
-  startNewInt < endInt && startInt < endNewInt;
+const diff = (newIntervals, oldIntervals) => {
+  const intervals = sortBy(prop('from'), newIntervals.concat(oldIntervals));
+  const resultArr = [];
 
-const diff = ([startNewInt, endNewInt], intervals) => {
-  if (intervals.length) {
-    return unnest(intervals
-      .filter(interval => overlaps([startNewInt, endNewInt], interval))
-      .map((interval, index, array) => {
-        const [startInt, endInt] = interval;
-
-        if (!overlaps([startNewInt, endNewInt], [startInt, endInt])) {
-          return [];
+  for (let i = 0; i < intervals.length; i += 1) {
+    const interval = intervals[i];
+    let tmpFrom = interval.from;
+    if (interval === intervals[intervals.length - 1]) {
+      resultArr.push(interval);
+      break;
+    }
+    for (let j = i + 1; j < intervals.length; j += 1) {
+      console.log(resultArr);
+      const currentInterval = intervals[j];
+      if (currentInterval.from < interval.to) {
+        if (tmpFrom < currentInterval.from) {
+          resultArr.push({
+            from: tmpFrom,
+            to: currentInterval.from,
+          });
         }
-        if (startInt <= startNewInt) {
-          if (endNewInt > endInt) {
-            if (index !== array.length - 1 && array[index + 1][0] < endNewInt) {
-              return [[endInt, array[index + 1][0]]];
-            }
-            return [[endInt, endNewInt]];
+        if (tmpFrom.getTime() === currentInterval.from.getTime()) {
+          if (interval.to < currentInterval.to) {
+            resultArr.push({
+              from: tmpFrom,
+              to: interval.to,
+            });
+            tmpFrom = interval.to;
+            break;
           }
-
-          return [];
-        }
-
-        if (endInt < endNewInt) {
-          if (index === array.length - 1) {
-            return [[startNewInt, startInt], [endInt, endNewInt]];
+          if (interval.to > currentInterval.to) {
+            tmpFrom = currentInterval.to;
+            continue;
           }
-          return [[startNewInt, startInt]];
         }
-
-        if (index === 0) {
-          return [[startNewInt, startInt]];
+        tmpFrom = currentInterval.to;
+        if (tmpFrom < interval.to) {
+          resultArr.push({
+            from: tmpFrom,
+            to: interval.to,
+          });
         }
-
-        return [];
-      }));
+        break;
+      }
+      if (interval.to < currentInterval.to) {
+        resultArr.push(interval);
+      }
+      break;
+    }
   }
-
-  return [[startNewInt, endNewInt]];
+  return sortBy(prop('from'), resultArr);
 };
 
-module.exports = { diff };
+const newIntervals = [{
+  from: new Date('2015-08-03T13:00:00.000Z'),
+  to: new Date('2015-08-03T14:30:00.000Z'),
+}];
 
+const oldIntervals = [{
+  from: new Date('2015-08-03T13:00:00.000Z'),
+  to: new Date('2015-08-03T13:30:00.000Z'),
+}, {
+  from: new Date('2015-08-03T14:00:00.000Z'),
+  to: new Date('2015-08-03T14:30:00.000Z'),
+}];
+
+diff(newIntervals, oldIntervals);
+
+module.exports = { diff };
