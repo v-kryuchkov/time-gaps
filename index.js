@@ -12,7 +12,6 @@ const diff = (newIntervals, oldIntervals) => {
       break;
     }
     for (let j = i + 1; j < intervals.length; j += 1) {
-      console.log(resultArr);
       const currentInterval = intervals[j];
       if (currentInterval.from < interval.to) {
         if (tmpFrom < currentInterval.from) {
@@ -21,51 +20,25 @@ const diff = (newIntervals, oldIntervals) => {
             to: currentInterval.from,
           });
         }
-        if (tmpFrom.getTime() === currentInterval.from.getTime()) {
-          if (interval.to < currentInterval.to) {
+        if (currentInterval.to < interval.to) {
+          tmpFrom = currentInterval.to;
+          if (currentInterval === intervals[intervals.length - 1]) {
             resultArr.push({
               from: tmpFrom,
               to: interval.to,
             });
-            tmpFrom = interval.to;
-            break;
           }
-          if (interval.to > currentInterval.to) {
-            tmpFrom = currentInterval.to;
-            continue;
-          }
-        }
-        tmpFrom = currentInterval.to;
-        if (tmpFrom < interval.to) {
-          resultArr.push({
-            from: tmpFrom,
-            to: interval.to,
-          });
-        }
+        } else { break; }
+      } else {
+        resultArr.push({
+          from: tmpFrom,
+          to: interval.to,
+        });
         break;
       }
-      if (interval.to < currentInterval.to) {
-        resultArr.push(interval);
-      }
-      break;
     }
   }
   return sortBy(prop('from'), resultArr);
 };
-
-const newIntervals = [{
-  from: new Date('2015-08-03T13:00:00.000Z'),
-  to: new Date('2015-08-03T14:30:00.000Z'),
-}];
-
-const oldIntervals = [{
-  from: new Date('2015-08-03T13:00:00.000Z'),
-  to: new Date('2015-08-03T13:30:00.000Z'),
-}, {
-  from: new Date('2015-08-03T14:00:00.000Z'),
-  to: new Date('2015-08-03T14:30:00.000Z'),
-}];
-
-diff(newIntervals, oldIntervals);
 
 module.exports = { diff };
