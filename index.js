@@ -1,7 +1,15 @@
 const { sortBy, prop } = require('ramda');
+const moment = require('moment');
 
 const diff = (newIntervals, oldIntervals) => {
-  const intervals = sortBy(prop('from'), newIntervals.concat(oldIntervals));
+  const notSortedArray = newIntervals.concat(oldIntervals)
+    .map(({ id, ...interval }) =>
+      Object.assign(interval, {
+        from: moment.utc(interval.from),
+        to: moment.utc(interval.to),
+      }));
+  const intervals = sortBy(prop('from'), notSortedArray);
+
   const resultArr = [];
 
   for (let i = 0; i < intervals.length; i += 1) {
@@ -16,6 +24,7 @@ const diff = (newIntervals, oldIntervals) => {
       if (currentInterval.from < interval.to) {
         if (tmpFrom < currentInterval.from) {
           resultArr.push({
+            ...interval,
             from: tmpFrom,
             to: currentInterval.from,
           });
@@ -24,6 +33,7 @@ const diff = (newIntervals, oldIntervals) => {
           tmpFrom = currentInterval.to;
           if (currentInterval === intervals[intervals.length - 1]) {
             resultArr.push({
+              ...currentInterval,
               from: tmpFrom,
               to: interval.to,
             });
@@ -31,6 +41,7 @@ const diff = (newIntervals, oldIntervals) => {
         } else { break; }
       } else {
         resultArr.push({
+          ...interval,
           from: tmpFrom,
           to: interval.to,
         });
@@ -38,7 +49,11 @@ const diff = (newIntervals, oldIntervals) => {
       }
     }
   }
-  return sortBy(prop('from'), resultArr);
+  return sortBy(prop('from'), resultArr).map(interval =>
+    Object.assign(interval, {
+      from: interval.from.toISOString(),
+      to: interval.to.toISOString(),
+    }));
 };
 
 module.exports = { diff };
