@@ -1,7 +1,17 @@
 {
     "extends": "airbnb-base",
+    "rules": {
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "*", "next": ["return", "if"] }
+        ]
+    },
+    "plugins": [
+        "import"
+    ],
     "env": {
-        "node": true,
-        "mocha": true
+        "mocha": true,
+        "es6": true,
+        "node": true
     }
 }
