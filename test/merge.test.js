@@ -1,5 +1,5 @@
-const { merge } = require('../index');
 const { expect } = require('chai');
+const { merge } = require('../index');
 
 describe('Test merge', () => {
   describe('2 sorted time intervals: 13:00-13:00 and 14:00-14:30', () => {

@@ -1,14 +1,27 @@
-const { sortBy, prop } = require('ramda');
+const {
+  sortBy,
+  prop,
+  concat,
+  pipe,
+  map,
+  evolve,
+  omit,
+  invoker,
+} = require('ramda');
 const moment = require('moment');
 
 const merge = (newIntervals, oldIntervals) => {
-  const notSortedArray = newIntervals.concat(oldIntervals)
-    .map(({ id, ...interval }) =>
-      Object.assign(interval, {
-        from: moment.utc(interval.from),
-        to: moment.utc(interval.to),
-      }));
-  const intervals = sortBy(prop('from'), notSortedArray);
+  const intervals = pipe(
+    concat(newIntervals),
+    map(pipe(
+      omit(['id']),
+      evolve({
+        from: moment.utc,
+        to: moment.utc,
+      }),
+    )),
+    sortBy(prop('from')),
+  )(oldIntervals);
 
   const resultArr = [];
 
@@ -54,11 +67,13 @@ const merge = (newIntervals, oldIntervals) => {
     }
   }
 
-  return sortBy(prop('from'), resultArr).map(interval =>
-    Object.assign(interval, {
-      from: interval.from.toISOString(),
-      to: interval.to.toISOString(),
-    }));
+  return pipe(
+    sortBy(prop('from')),
+    map(evolve({
+      from: invoker(0, 'toISOString'),
+      to: invoker(0, 'toISOString'),
+    })),
+  )(resultArr);
 };
 
 module.exports = { merge };
