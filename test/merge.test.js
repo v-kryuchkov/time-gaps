@@ -1,7 +1,7 @@
-const { diff } = require('../index');
+const { merge } = require('../index');
 const { expect } = require('chai');
 
-describe('Test diff', () => {
+describe('Test merge', () => {
   describe('2 sorted time intervals: 13:00-13:00 and 14:00-14:30', () => {
     const oldIntervals = [{
       from: '2015-08-03T13:00:00.000Z',
@@ -16,7 +16,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T13:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -41,7 +41,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:15:00.000Z',
         to: '2015-08-03T13:45:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
       const waitResult = [
         {
           from: '2015-08-03T13:00:00.000Z',
@@ -64,7 +64,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:45:00.000Z',
         to: '2015-08-03T14:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -88,7 +88,7 @@ describe('Test diff', () => {
         from: '2015-08-03T14:15:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -112,7 +112,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T13:45:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -139,7 +139,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:45:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -166,7 +166,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:15:00.000Z',
         to: '2015-08-03T14:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -190,7 +190,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -220,7 +220,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T13:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -241,7 +241,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:30:00.000Z',
         to: '2015-08-03T14:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -265,7 +265,7 @@ describe('Test diff', () => {
         from: '2015-08-03T14:00:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -286,7 +286,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T14:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -310,7 +310,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:30:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -334,7 +334,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -370,7 +370,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T13:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -398,7 +398,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:15:00.000Z',
         to: '2015-08-03T13:45:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
       const waitResult = [
         {
           from: '2015-08-03T13:00:00.000Z',
@@ -424,7 +424,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:45:00.000Z',
         to: '2015-08-03T14:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -451,7 +451,7 @@ describe('Test diff', () => {
         from: '2015-08-03T14:15:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -478,7 +478,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T13:45:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -508,7 +508,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:45:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -538,7 +538,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:15:00.000Z',
         to: '2015-08-03T14:15:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -565,7 +565,7 @@ describe('Test diff', () => {
         from: '2015-08-03T12:45:00.000Z',
         to: '2015-08-03T15:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -598,7 +598,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T13:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -622,7 +622,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:30:00.000Z',
         to: '2015-08-03T14:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -649,7 +649,7 @@ describe('Test diff', () => {
         from: '2015-08-03T14:00:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -673,7 +673,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T14:00:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -700,7 +700,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:30:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
@@ -727,7 +727,7 @@ describe('Test diff', () => {
         from: '2015-08-03T13:00:00.000Z',
         to: '2015-08-03T14:30:00.000Z',
       }];
-      const result = await diff(newIntervals, oldIntervals);
+      const result = await merge(newIntervals, oldIntervals);
 
       const waitResult = [
         {
