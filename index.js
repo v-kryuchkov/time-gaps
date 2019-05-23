@@ -7,6 +7,7 @@ const {
   evolve,
   omit,
   invoker,
+  last,
 } = require('ramda');
 const moment = require('moment');
 
@@ -29,7 +30,7 @@ const merge = (newIntervals, oldIntervals) => {
     const interval = intervals[i];
     let tmpFrom = interval.from;
 
-    if (interval === intervals[intervals.length - 1]) {
+    if (interval === last(intervals)) {
       resultArr.push(interval);
       break;
     }
@@ -48,7 +49,7 @@ const merge = (newIntervals, oldIntervals) => {
         if (currentInterval.to < interval.to) {
           tmpFrom = currentInterval.to;
 
-          if (currentInterval === intervals[intervals.length - 1]) {
+          if (currentInterval === last(intervals)) {
             resultArr.push({
               ...interval,
               from: tmpFrom,
