@@ -17,13 +17,20 @@
   "bugs": {
     "url": "https://github.com/v-kryuchkov/time-gaps/issues"
   },
+  "keywords": [
+		"time",
+		"gaps",
+		"interval",
+		"merge"
+	],
+  "types": "./index.d.ts",
   "homepage": "https://github.com/v-kryuchkov/time-gaps#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^5.15.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "mocha": "^6.1.4"
+    "chai": "^4.3.6",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0"
   },
   "dependencies": {
     "moment": "^2.29.3",
