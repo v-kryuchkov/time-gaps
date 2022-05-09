@@ -1,6 +1,6 @@
 {
   "name": "time-gaps",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,11 +18,11 @@
     "url": "https://github.com/v-kryuchkov/time-gaps/issues"
   },
   "keywords": [
-		"time",
-		"gaps",
-		"interval",
-		"merge"
-	],
+    "time",
+    "gaps",
+    "interval",
+    "merge"
+  ],
   "types": "./index.d.ts",
   "homepage": "https://github.com/v-kryuchkov/time-gaps#readme",
   "devDependencies": {
