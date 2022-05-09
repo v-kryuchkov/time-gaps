@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdminLP/time-gaps.git"
+    "url": "git+https://github.com/v-kryuchkov/time-gaps.git"
   },
   "author": "Vasiliy Kryuchkov",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/AdminLP/time-gaps/issues"
+    "url": "https://github.com/v-kryuchkov/time-gaps/issues"
   },
-  "homepage": "https://github.com/AdminLP/time-gaps#readme",
+  "homepage": "https://github.com/v-kryuchkov/time-gaps#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.15.1",
@@ -26,8 +26,8 @@
     "mocha": "^6.1.4"
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "ramda": "^0.26.1"
+    "moment": "^2.29.3",
+    "ramda": "^0.28.0"
   },
   "engines": {
     "node": ">= 6.11.5"
