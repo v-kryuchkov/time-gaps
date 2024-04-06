@@ -1,4 +1,3 @@
-const { expect } = require('chai');
 const { merge } = require('../index');
 
 describe('Test merge', () => {
@@ -32,8 +31,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:15-13:45', async () => {
@@ -55,8 +53,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:45-14:15', async () => {
@@ -79,8 +76,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('14:15-15:00', async () => {
@@ -103,8 +99,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('12:45-13:45', async () => {
@@ -130,8 +125,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:45-15:00', async () => {
@@ -157,8 +151,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:15-14:15', async () => {
@@ -181,8 +174,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('12:45-15:00', async () => {
@@ -211,8 +203,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-13:30', async () => {
@@ -232,8 +223,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:30-14:00', async () => {
@@ -256,8 +246,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('14:00-14:30', async () => {
@@ -277,8 +266,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-14:00', async () => {
@@ -301,8 +289,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:30-14:30', async () => {
@@ -325,8 +312,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-14:30', async () => {
@@ -349,8 +335,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
   });
   describe('3 sorted time intervals: 13:00-13:00, 14:00-14:30 and 15:00-15:30', () => {
@@ -389,8 +374,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:15-13:45', async () => {
@@ -415,8 +399,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:45-14:15', async () => {
@@ -442,8 +425,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('14:15-15:00', async () => {
@@ -469,8 +451,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('12:45-13:45', async () => {
@@ -499,8 +480,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:45-15:00', async () => {
@@ -529,8 +509,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:15-14:15', async () => {
@@ -556,8 +535,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('12:45-15:00', async () => {
@@ -589,8 +567,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-13:30', async () => {
@@ -613,8 +590,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:30-14:00', async () => {
@@ -640,8 +616,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('14:00-14:30', async () => {
@@ -664,8 +639,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-14:00', async () => {
@@ -691,8 +665,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:30-14:30', async () => {
@@ -718,8 +691,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
 
     it('13:00-14:30', async () => {
@@ -745,8 +717,7 @@ describe('Test merge', () => {
         },
       ];
 
-      return expect(result)
-        .to.deep.equal(waitResult);
+      return expect(result).toEqual(waitResult);
     });
   });
 });

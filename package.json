@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint test/**/*.js index.js",
-    "unit-test": "mocha test/*.test.js",
+    "unit-test": "jest test/*.test.js",
     "test": "npm run lint && npm run unit-test"
   },
   "repository": {
@@ -26,15 +26,14 @@
   "types": "./index.d.ts",
   "homepage": "https://github.com/v-kryuchkov/time-gaps#readme",
   "devDependencies": {
-    "chai": "^4.3.6",
-    "eslint": "^8.15.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "mocha": "^10.0.0"
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0"
   },
   "dependencies": {
-    "moment": "^2.29.3",
-    "ramda": "^0.28.0"
+    "luxon": "^3.4.4",
+    "ramda": "^0.29.1"
   },
   "engines": {
     "node": ">= 6.11.5"

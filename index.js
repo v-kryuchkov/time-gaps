@@ -9,7 +9,7 @@ const {
   invoker,
   last,
 } = require('ramda');
-const moment = require('moment');
+const { DateTime } = require('luxon');
 
 const merge = (newIntervals, oldIntervals) => {
   const intervals = pipe(
@@ -17,8 +17,8 @@ const merge = (newIntervals, oldIntervals) => {
     map(pipe(
       omit(['id']),
       evolve({
-        from: moment.utc,
-        to: moment.utc,
+        from: (d) => DateTime.fromISO(d).toUTC(),
+        to: (d) => DateTime.fromISO(d).toUTC(),
       }),
     )),
     sortBy(prop('from')),
@@ -71,8 +71,8 @@ const merge = (newIntervals, oldIntervals) => {
   return pipe(
     sortBy(prop('from')),
     map(evolve({
-      from: invoker(0, 'toISOString'),
-      to: invoker(0, 'toISOString'),
+      from: invoker(0, 'toISO'),
+      to: invoker(0, 'toISO'),
     })),
   )(resultArr);
 };
